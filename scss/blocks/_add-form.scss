@@ -1,0 +1,54 @@
+.add-form {
+    position: relative;
+    top: -30px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 3px 3px rgba(0,0,0,.25);
+    border-radius: $border-radius;
+    display: flex;
+    flex-direction: column;
+    @media (min-width: $break-small) {
+        flex-direction: row;
+    }
+    
+    &__select,
+    &__input {
+        padding: 5px;
+        border: 1px #f7f7f7 solid;
+    }
+    
+    &__select {
+        flex: 1;
+        
+    }
+    
+    &__input {
+        
+        margin: 10px 0;
+        @media (min-width: $break-small) {
+            margin: 0 10px;
+        }
+        
+        &--text {
+            flex: 2;
+        }
+        &--number {
+            flex: 1;
+        }
+    }
+    &__button {
+        flex: 1;
+        padding: 5px;
+        background-color: $color-primary;
+        color: #fff;
+        border: none;
+        
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: #02D5E2;
+        }
+    }
+    
+    
+}

@@ -1,0 +1,34 @@
+/* ================== */
+/* Variables */
+/* ================== */
+@import '_variables.scss';
+
+/* ================== */
+/* Basic styles */
+/* ================== */
+@import '_base.scss';
+
+/* ================== */
+/* Buttons */
+/* ================== */
+@import 'blocks/_buttons.scss';
+
+/* ================== */
+/* Budget app element */
+/* ================== */
+@import 'blocks/_budget-app.scss';
+
+/* ================== */
+/* Budget info element */
+/* ================== */
+@import 'blocks/_budget-info.scss';
+
+/* ================== */
+/* Form for adding elements */
+/* ================== */
+@import 'blocks/_add-form.scss';
+
+/* ================== */
+/* Lists */
+/* ================== */
+@import 'blocks/_lists.scss';

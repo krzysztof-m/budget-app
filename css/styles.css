@@ -1,0 +1,173 @@
+/* ================== */
+/* Variables */
+/* ================== */
+/* Media queries */
+/* ================== */
+/* Basic styles */
+/* ================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  background-color: #efefef; }
+
+input,
+button,
+select {
+  font: inherit; }
+
+.container {
+  max-width: 960px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto; }
+
+/* ================== */
+/* Buttons */
+/* ================== */
+.btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer; }
+  .btn--close {
+    box-sizing: content-box;
+    border: 1px #ff0000 solid;
+    color: #f00;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 10px;
+    margin-left: 10px; }
+
+/* ================== */
+/* Budget app element */
+/* ================== */
+.budget-app__header {
+  background-color: #0B97DD;
+  background-image: linear-gradient(to right, #0B97DD, #02D6E2);
+  padding: 50px 0; }
+
+/* ================== */
+/* Budget info element */
+/* ================== */
+.budget-info {
+  display: grid;
+  grid-template-areas: "total" "income" "expense";
+  grid-gap: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  line-height: 25px; }
+  @media (min-width: 500px) {
+    .budget-info {
+      grid-template-areas: "total income income" "total expense expense"; } }
+  .budget-info__label {
+    border: 1px rgba(255, 255, 255, 0.6) solid;
+    padding: 10px 20px;
+    color: #fff;
+    display: flex; }
+    .budget-info__label--total-budget {
+      grid-area: total;
+      flex-direction: column; }
+    .budget-info__label--incomes {
+      grid-area: income;
+      align-items: center; }
+    .budget-info__label--expenses {
+      grid-area: expense;
+      align-items: center; }
+    .budget-info__label .total,
+    .budget-info__label .inc,
+    .budget-info__label .exp {
+      background-color: #fff;
+      padding: .3em .5em;
+      border-radius: 3px;
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2); }
+    .budget-info__label .total {
+      margin-top: auto;
+      margin-left: auto;
+      font-size: 35px;
+      line-height: 45px;
+      color: #0B98DD; }
+    .budget-info__label .inc,
+    .budget-info__label .exp {
+      margin-left: auto; }
+    .budget-info__label .inc {
+      color: #090; }
+    .budget-info__label .exp {
+      color: #d00; }
+
+/* ================== */
+/* Form for adding elements */
+/* ================== */
+.add-form {
+  position: relative;
+  top: -30px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column; }
+  @media (min-width: 768px) {
+    .add-form {
+      flex-direction: row; } }
+  .add-form__select, .add-form__input {
+    padding: 5px;
+    border: 1px #f7f7f7 solid; }
+  .add-form__select {
+    flex: 1; }
+  .add-form__input {
+    margin: 10px 0; }
+    @media (min-width: 768px) {
+      .add-form__input {
+        margin: 0 10px; } }
+    .add-form__input--text {
+      flex: 2; }
+    .add-form__input--number {
+      flex: 1; }
+  .add-form__button {
+    flex: 1;
+    padding: 5px;
+    background-color: #0B97DD;
+    color: #fff;
+    border: none; }
+    .add-form__button:hover, .add-form__button:focus, .add-form__button:active {
+      background-color: #02D5E2; }
+
+/* ================== */
+/* Lists */
+/* ================== */
+.budget-lists {
+  display: flex;
+  flex-direction: column; }
+  @media (min-width: 768px) {
+    .budget-lists {
+      flex-direction: row; } }
+
+.budget-list {
+  list-style: none;
+  padding: 20px;
+  flex: 1;
+  border: 1px #eee solid;
+  border-radius: 3px;
+  margin: 10px 0;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  background-color: #fff; }
+  @media (min-width: 768px) {
+    .budget-list {
+      margin: 0 10px; } }
+  .budget-list__item {
+    display: flex;
+    padding: 10px; }
+    .budget-list__item .value {
+      margin-left: auto; }
+    .budget-list__item + .budget-list__item {
+      border-top: 1px #ddd solid; }
+
+/*# sourceMappingURL=styles.css.map */

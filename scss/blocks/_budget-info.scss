@@ -1,0 +1,80 @@
+.budget-info {
+    display: grid;
+    grid-template-areas: "total"
+        "income"
+        "expense";
+    grid-gap: 20px;
+    font-family: 'Poppins', sans-serif;
+    //font-weight: 500;
+    font-size: 20px;
+    line-height: 25px;
+    
+    @media (min-width: $break-exstra-small) {
+        grid-template-areas: "total income income"
+        "total expense expense";
+    }
+    
+    
+    &__label {
+        border: 1px rgba(255,255,255,.6) solid;
+        //background-color: rgba(255,255,255,.6);
+        padding: 10px 20px;
+        color: #fff;
+        display: flex;
+        
+        
+        &--total-budget {
+            grid-area: total;
+            flex-direction: column;
+        }
+
+
+        &--incomes {
+            grid-area: income;
+            align-items: center;
+            
+        }
+
+
+        &--expenses {
+            grid-area: expense;
+            align-items: center;
+            
+        }
+        
+        .total,
+        .inc,
+        .exp {
+            background-color: #fff;
+            
+            padding: .3em .5em;
+            border-radius: $border-radius;
+            box-shadow: 2px 2px 2px rgba(0,0,0,.2);
+        }
+        
+        .total {
+            margin-top: auto;
+            margin-left: auto;
+            font-size: 35px;
+            line-height: 45px;
+            color: #0B98DD;
+        }
+        
+        .inc,
+        .exp {
+            margin-left: auto;
+        }
+        
+        .inc {
+            color: #090;
+        }
+        .exp {
+            color: #d00;
+        }
+        
+    }
+    
+    
+    
+    
+}
