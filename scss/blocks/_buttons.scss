@@ -4,19 +4,10 @@
     cursor: pointer;
     
     
-    &--close {
-        box-sizing: content-box;
-        border: 1px #ff0000 solid;
-        //box-shadow: 0 0 0 1px red;
-        color: #f00;
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        line-height: 20px;
-        vertical-align: middle;
-        text-align: center;
-        font-size: 10px;
-        margin-left: 10px;
-       
+    &--item {
+        margin-left: 5px;
+      .icon {
+        padding: 0 5px;
+      }
     }
 }

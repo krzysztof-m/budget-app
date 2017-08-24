@@ -33,18 +33,10 @@ select {
   background-color: transparent;
   border: none;
   cursor: pointer; }
-  .btn--close {
-    box-sizing: content-box;
-    border: 1px #ff0000 solid;
-    color: #f00;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    vertical-align: middle;
-    text-align: center;
-    font-size: 10px;
-    margin-left: 10px; }
+  .btn--item {
+    margin-left: 5px; }
+    .btn--item .icon {
+      padding: 0 5px; }
 
 /* ================== */
 /* Budget app element */
@@ -139,6 +131,14 @@ select {
     border: none; }
     .add-form__button:hover, .add-form__button:focus, .add-form__button:active {
       background-color: #02D5E2; }
+  .add-form--inc *:focus {
+    outline-color: #090; }
+  .add-form--inc .add-form__button {
+    background-color: #090; }
+  .add-form--exp *:focus {
+    outline-color: #d00; }
+  .add-form--exp .add-form__button {
+    background-color: #d00; }
 
 /* ================== */
 /* Lists */

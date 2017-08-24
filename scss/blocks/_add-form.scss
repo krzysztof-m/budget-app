@@ -50,5 +50,21 @@
         }
     }
     
-    
+  &--inc {
+    *:focus {
+      outline-color: #090;
+    }
+    .add-form__button {
+      background-color: #090;
+    }
+  }
+  
+  &--exp {
+    *:focus {
+      outline-color: #d00;
+    }
+    .add-form__button {
+      background-color: #d00;
+    }
+  }
 }
