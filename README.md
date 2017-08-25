@@ -1,6 +1,6 @@
 ## Budget app
 ### Based on Udemy course
-This is my version of budget app.
+This is my version of budget app. Here's a link to [working app](https://krzysztof-m.github.io/budget-app/).
 
 ## Versions
 ### v.1.0

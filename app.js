@@ -181,7 +181,7 @@ var UIController = (function () {
     },
     addItem: function (obj, type) {
       
-      var itemHTML = '<li class="budget-list__item" data-id="' + obj.id +'" data-type="' + type + '">' + obj.description + ' <span class="value">' + obj.value +'$</span><button class="btn btn--item"><span class="icon ion-edit"></span></button><button class="btn btn--item"><span class="icon ion-close-round"></span></button></li>';
+      var itemHTML = '<li class="budget-list__item" data-id="' + obj.id +'" data-type="' + type + '">' + obj.description + ' <span class="value">' + obj.value +'$</span><button class="btn btn--item btn--edit"><span class="icon ion-edit"></span></button><button class="btn btn--item btn--close"><span class="icon ion-close-round"></span></button></li>';
       //console.log(itemHTML);
       
       if (type === 'inc') {
@@ -205,7 +205,7 @@ var UIController = (function () {
       element.innerHTML = editForm;
     },
     saveItem: function (item, element) {
-      var savedItem = item.description + '<span class="value">' + item.value + '$</span><button class="btn btn--item"><span class="icon ion-edit"></span></button><button class="btn btn--item"><span class="icon ion-close-round"></span></button>';
+      var savedItem = item.description + '<span class="value">' + item.value + '$</span><button class="btn btn--item btn--edit"><span class="icon ion-edit"></span></button><button class="btn btn--item btn--close"><span class="icon ion-close-round"></span></button>';
       
       element.innerHTML = savedItem;
           
@@ -228,13 +228,20 @@ var UIController = (function () {
         DOMElements.addForm.classList.remove('add-form--inc');
         DOMElements.addForm.classList.add('add-form--exp');
       }
+    },
+    findParent: function (parentClass, element) {
+      var parent = element.parentElement;
+      
+      while (!parent.classList.contains(parentClass)) {
+        parent = parent.parentElement;
+      }
+      
+      return parent;
     }
   }
   
   
 })();
-
-
 
 
 //Module that control data flow beetwen other modules
@@ -258,9 +265,10 @@ var Controller = (function (bgtCtrl, uiCtrl) {
       
       var elClassName = e.target.className;
       // jakiś lepszy sposób trzeba na to znaleźć
-      if (elClassName.indexOf('ion-close') > -1) {
+      console.log(elClassName);
+      if ((elClassName.indexOf('ion-close') > -1) || (elClassName.indexOf('btn--close') > -1)) {
         ctrlRemoveItem(e);
-      } else if (elClassName.indexOf('ion-edit') > -1) {
+      } else if ((elClassName.indexOf('ion-edit') > -1) || (elClassName.indexOf('btn--edit') > -1)) {
         ctrlEditItem(e);
       } else if (elClassName.indexOf('save') > -1) {
         ctrlSaveItem(e);
@@ -288,7 +296,7 @@ var Controller = (function (bgtCtrl, uiCtrl) {
       if (userInput.description !== '' && userInput.value > 0) {
           // 4. Add item to data structure
           var newItem = bgtCtrl.addItem(userInput.type, userInput.description, userInput.value);
-          console.log(newItem);
+          //console.log(newItem);
         // 3. Add item to UI
           uiCtrl.addItem(newItem, userInput.type);
           uiCtrl.clearInput();
@@ -298,15 +306,16 @@ var Controller = (function (bgtCtrl, uiCtrl) {
       }
 
       updateBudget();
+    
   }
   
   
   var ctrlRemoveItem = function (e) {
-    var removeBtn;
+      var removeBtn;
+      console.log(uiCtrl.findParent('budget-list__item',e.target));
+      //removeBtn = e.target.parentElement;
       
-      removeBtn = e.target.parentElement;//muszę uważać bo raz się klika ikona, raz button, trzeba przerobić HTML
-      
-      listItem = removeBtn.parentElement;
+      listItem = uiCtrl.findParent('budget-list__item',e.target);
       
       bgtCtrl.removeItem(listItem.dataset.type, parseInt(listItem.dataset.id));
       
@@ -318,7 +327,7 @@ var Controller = (function (bgtCtrl, uiCtrl) {
   
   var ctrlEditItem = function (e) {
     
-    var listItem = e.target.parentElement.parentElement;
+    var listItem = uiCtrl.findParent('budget-list__item',e.target);
     var listItemIndex = parseInt(listItem.dataset.id);
     var listItemType = listItem.dataset.type;
     
@@ -326,12 +335,12 @@ var Controller = (function (bgtCtrl, uiCtrl) {
     var editItem = bgtCtrl.findItem(listItemType, listItemIndex);
     
     // 2. Turn on edit mode (ui)
-    uiCtrl.editItem(editItem, e.target.parentElement.parentElement);
+    uiCtrl.editItem(editItem, listItem);
     
   }
   
   var ctrlSaveItem = function (e) {
-    var listItem = e.target.parentElement;
+    var listItem = uiCtrl.findParent('budget-list__item',e.target);
     var listItemIndex = parseInt(listItem.dataset.id);
     var listItemType = listItem.dataset.type;
     
